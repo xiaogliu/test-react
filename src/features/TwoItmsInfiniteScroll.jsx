@@ -10,6 +10,8 @@ class TwoItmsInfiniteScroll extends React.Component {
     };
 
     this.index = 1;
+    this.timeoutId = null;
+    this.timeIntervalId = null;
   }
 
   scroll = () => {
@@ -22,7 +24,7 @@ class TwoItmsInfiniteScroll extends React.Component {
 
     if (this.index === 2) {
       this.index = 0;
-      setTimeout(() => {
+      this.timeoutId = setTimeout(() => {
         this.setState((prevState) => {
           const child1 = prevState.items.shift();
           prevState.items.push(child1);
@@ -37,9 +39,14 @@ class TwoItmsInfiniteScroll extends React.Component {
   };
 
   componentDidMount() {
-    setInterval(() => {
+    this.timeIntervalId = setInterval(() => {
       this.scroll();
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeoutId);
+    clearInterval(this.timeIntervalId);
   }
 
   render() {
