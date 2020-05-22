@@ -22,7 +22,6 @@ class TwoItmsInfiniteScroll extends React.Component {
 
     if (this.index === 2) {
       this.index = 0;
-      // this.scrollRef.current.style.transition = 'all 2';
       setTimeout(() => {
         this.setState((prevState) => {
           const child1 = prevState.items.shift();
