@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
-import Form from "react-jsonschema-form";
 import UnmountTest from "./features/UnmoutTest";
+import ImageGallery from "./features/ImageGallery";
+import TwoItmsInfiniteScroll from "./features/TwoItmsInfiniteScroll";
 
 class App extends React.Component {
   constructor(props) {
@@ -23,13 +24,15 @@ class App extends React.Component {
   };
 
   render() {
-    console.log('app re-render');
+    console.log("app re-render");
     return (
       <div>
         {this.state.items.map((item) => (
           <UnmountTest idhahaha={item} />
         ))}
         <button onClick={this.addItem}>Add item</button>
+        <ImageGallery />
+        <TwoItmsInfiniteScroll />
       </div>
     );
   }
