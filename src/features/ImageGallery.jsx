@@ -22,6 +22,24 @@ const images = [
 
 const renderItem = (item) => item.node;
 
-const ImageGallery = () => <Gallery items={images} renderItem={renderItem} />;
+const ImageGallery = () => (
+  <div
+    style={{
+      borderRadius: "10px",
+      overflow: "hidden",
+      // only add this can avoid border radius invalid
+      transform: 'translateZ(0)',
+    }}
+  >
+    <Gallery
+      items={images}
+      renderItem={renderItem}
+      showThumbnails={false}
+      showNav={false}
+      showPlayButton={false}
+      showFullscreenButton={false}
+    />
+  </div>
+);
 
 export default ImageGallery;
