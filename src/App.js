@@ -1,8 +1,9 @@
-import React from "react";
-import "./App.css";
-import UnmountTest from "./features/UnmoutTest";
-import ImageGallery from "./features/ImageGallery";
-import TwoItmsInfiniteScroll from "./features/TwoItmsInfiniteScroll";
+import React from 'react';
+import './App.css';
+import UnmountTest from './features/UnmoutTest';
+import ImageGallery from './features/ImageGallery';
+import TwoItmsInfiniteScroll from './features/TwoItmsInfiniteScroll';
+import EnzymeDive from './features/EnzymeDive';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class App extends React.Component {
   }
 
   addItem = () => {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       prevState.items.push(prevState.items[prevState.items.length - 1] + 1);
       return {
         showFoo: !prevState.showFoo,
@@ -24,15 +25,16 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("app re-render");
+    console.log('app re-render');
     return (
       <div>
-        {this.state.items.map((item) => (
+        {this.state.items.map(item => (
           <UnmountTest idhahaha={item} />
         ))}
         <button onClick={this.addItem}>Add item</button>
         <ImageGallery />
         <TwoItmsInfiniteScroll />
+        <EnzymeDive />
       </div>
     );
   }
