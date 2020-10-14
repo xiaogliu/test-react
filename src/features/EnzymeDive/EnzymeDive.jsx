@@ -10,7 +10,7 @@ class EnzymeDive extends React.Component {
 
   render() {
     return (
-      <div style={{ height: '50px', overflow: 'hidden' }}>
+      <div>
         Enzyme Dive
         <Bar />
       </div>
